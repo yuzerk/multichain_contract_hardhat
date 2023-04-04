@@ -10,14 +10,15 @@ module.exports = {
 
         token_name : 'Test1',
         token_symbol : 't1',
-        account_address : '0x8562e81Ec817a9bc1B4f1273f4010e67212a580D',
-        test_private_key : '0xaf77aa06ea64d624df76c0498f568198ba01f3f9b082bea6392a19defffc9ed7',
+        account_address : '0x08ccCCE861E069f9cCD2079Fb73C3BF10986B9B6',
+        test_private_key : '0xcfff7d6939b4458ddf6ba546042ce42a5780bb7c233b8edf607a4833809c230b',
 
-        config_router_account_address : ['0x8562e81Ec817a9bc1B4f1273f4010e67212a580D', '0x0e8447d88B8C8b78297669A332C441BC3A851F27'],
-        config_address: '0x8B148aCC33647992387060e3D1239Ea863824AAf',
+        config_router_account_address : ['0x08ccCCE861E069f9cCD2079Fb73C3BF10986B9B6', '0x61F6256c5C415fB4B1fEb29bAFF41e3312497102'],
+        // config router 的地址 目前config 合约配置在源链上面
+        config_address: '0xA6B64054eA5BE07Dd3c092405FC6F2FEB7aF4b90',
     
-        token_address : '0xafEff6CA12080f2eC518048e10EE067b17fa8FF1',
-        router_address: '0x110eD7f92B9a2bBF283BAb148E80901B2Cd41439',
+        token_address : '0x328C0059F8DBEA6743c0609e2a7F480B1C8C4FCB',
+        router_address: '0x18A52C15086d96eD06226Db185FfEE7DCB463760',
     },
 
     //5888-7546
@@ -26,12 +27,12 @@ module.exports = {
         chain_id: '5888',
         chain_name: '7546_eth',
 
-        token_name : 'Test2',
-        token_symbol : 't2',
-        account_address : '0xe3B94e10d5293Be25Bb7c320be1e55bcfbC99538',
-        test_private_key :'0x42d6003bd6c3491eb3f9a31dc392bbb44a79bf860b9fa9feed9a57ded9060b60',
+        token_name : 'Test1',
+        token_symbol : 't1',
+        account_address : '0x15261Cf4f8E003cfA33B6A07271502601065f780',
+        test_private_key :'0x809a9d19d384fcb878f604d55a3042d114bcb252f0d49ee00e143fa96b356e39',
 
-        token_address : '0x42A1BaB83AfE14fdb44956E219d91fB86A47aFB1',
-        router_address: '0xB0a5C927A261AD8504923976ac88A4F04E17358e',
+        token_address : '0x95ade95810FD5Aa7b876c7e8A3deff8FeEA5B26c',
+        router_address: '0xE83A7741c5d12Fa1c2d89275BCbfFceb79A8D39a',
     }
 }

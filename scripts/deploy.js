@@ -27,23 +27,23 @@ async function main() {
   //   )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
   // );
 
-  //deployAnyErc20();
-  //deployAnyRouter();
+  //deployAnyErc20(address_config.destination);
+  //deployAnyRouter(address_config.destination);
   deployRouterConfig();
 }
 
-async function deployAnyErc20() {
+async function deployAnyErc20(chain) {
   const contractName = 'AnyswapV6ERC20';
   const MyToken1 = await hre.ethers.getContractFactory(contractName);
-  const token1 = await MyToken1.deploy(address_config.destination.token_name, address_config.destination.token_symbol, 18, zero_address, address_config.destination.account_address);
+  const token1 = await MyToken1.deploy(chain.token_name, chain.token_symbol, 18, zero_address, chain.account_address);
   await token1.deployed();
   console.log("Token address:", token1.address);
 }
 
-async function deployAnyRouter() {
+async function deployAnyRouter(chain) {
   const contractName = 'AnyswapV6Router'
   const AnyRouter = await hre.ethers.getContractFactory(contractName);
-  const router = await AnyRouter.deploy(zero_address, zero_address, address_config.destination.account_address, {gasLimit: 6000000, gasPrice: 20000000000});
+  const router = await AnyRouter.deploy(zero_address, zero_address, chain.account_address, {gasLimit: 6000000, gasPrice: 20000000000});
   await router.deployed();
   console.log("router address: ", router.address)
 }
@@ -53,7 +53,7 @@ async function deployRouterConfig() {
   const AnyRouter = await hre.ethers.getContractFactory(contractName);
   const router = await AnyRouter.deploy(address_config.origin.config_router_account_address, {gasLimit: 6000000, gasPrice: 20000000000});
   await router.deployed();
-  console.log("router address: ", router.address)
+  console.log("config address: ", router.address)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

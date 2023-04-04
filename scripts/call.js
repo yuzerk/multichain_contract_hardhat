@@ -3,6 +3,8 @@ const fs = require("fs");
 
 const config = require("../address_config.js")
 
+const zero_address = '0x0000000000000000000000000000000000000000'
+
 async function main() {
     
     RouterConfigSet();
@@ -16,13 +18,21 @@ async function RouterConfigSet() {
       abi,
       provider.getSigner()
     );
-    await contract.setChainConfig(config.origin.chain_id, config.origin.chain_name, config.origin.router_address, 1, 0, "");
-    const chainConfig = await contract.getChainConfig(config.origin.chain_id);
-    if (chainConfig.RouterContract != config.origin.router_address) {
-        console.log('RouterConfigSet error, onchain data do not equal to config file data, please check config file or onchain data')
+    // 配置chain
+    // await contract.setChainConfig(config.origin.chain_id, config.origin.chain_name, config.origin.router_address, 1, 0, "");
+    // const chainConfig = await contract.getChainConfig(config.origin.chain_id);
+    // if (chainConfig.RouterContract != config.origin.router_address) {
+    //     console.log('RouterConfigSet setChainConfig error, chainConfig.RouterContract is ', chainConfig.RouterContract, 'config.origin.router_address', config.origin.router_address)
+    // }
+
+    //配置token
+    await contract.setTokenConfig(config.origin.token_name,config.origin.chain_id, config.origin.token_address, 18, 1, zero_address, "");
+    const tokenConfig = await contract.getTokenConfig(config.origin.token_name, config.origin.chain_id);
+    console.log(tokenConfig);
+    if (tokenConfig.ContractAddress != config.origin.token_address) {
+        console.log("RouterConfigSet setTokenConfig error");
     }
 
-    
 }
 
 main().catch((error) => {
