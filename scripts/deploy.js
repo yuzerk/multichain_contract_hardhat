@@ -27,9 +27,14 @@ async function main() {
   //   )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
   // );
 
+  //origin
+  //deployAnyErc20(address_config.origin);
+  //deployAnyRouter(address_config.origin);
+  deployRouterConfig();
+
+  //destination
   //deployAnyErc20(address_config.destination);
   //deployAnyRouter(address_config.destination);
-  deployRouterConfig();
 }
 
 async function deployAnyErc20(chain) {

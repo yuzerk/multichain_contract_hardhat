@@ -10,15 +10,15 @@ module.exports = {
 
         token_name : 'Test1',
         token_symbol : 't1',
-        account_address : '0x08ccCCE861E069f9cCD2079Fb73C3BF10986B9B6',
-        test_private_key : '0xcfff7d6939b4458ddf6ba546042ce42a5780bb7c233b8edf607a4833809c230b',
+        account_address : '0xfF0f7ebAC792A79478071D71826A49a1b53f31F8',
+        test_private_key : '0xa5bff02f4c31e03201629632d8dae9bca1e500bfb001c54bd3b0c1d76bb77183',
 
-        config_router_account_address : ['0x08ccCCE861E069f9cCD2079Fb73C3BF10986B9B6', '0x61F6256c5C415fB4B1fEb29bAFF41e3312497102'],
-        // config router 的地址 目前config 合约配置在源链上面
-        config_address: '0xA6B64054eA5BE07Dd3c092405FC6F2FEB7aF4b90',
+        config_router_account_address : ['0xfF0f7ebAC792A79478071D71826A49a1b53f31F8', '0x1020CFEF10585Ad3BeE48BEf61734F1Ff1fF08FB'],
     
-        token_address : '0x328C0059F8DBEA6743c0609e2a7F480B1C8C4FCB',
-        router_address: '0x18A52C15086d96eD06226Db185FfEE7DCB463760',
+        token_address : '0x0b32E2092B2dF5117Fb6d549FfE252915BA22146',
+        router_address: '0xd50A75a67c81E2Ece8fb912DC982DC07411d7D51',
+        // config router 的地址 目前config 合约配置在源链上面
+        config_address: '0x97d830bCa372e566C4b6d67F122704692beBd20a',
     },
 
     //5888-7546
@@ -29,10 +29,10 @@ module.exports = {
 
         token_name : 'Test1',
         token_symbol : 't1',
-        account_address : '0x15261Cf4f8E003cfA33B6A07271502601065f780',
-        test_private_key :'0x809a9d19d384fcb878f604d55a3042d114bcb252f0d49ee00e143fa96b356e39',
+        account_address : '0x7bB201f5733dA1Ae7B19a8a3F67bDd25A9e1CfaD',
+        test_private_key :'0x7efefabc8250c0f9eee0745b7676dfed339b3d1525f939aabf975b7a412dea61',
 
-        token_address : '0x95ade95810FD5Aa7b876c7e8A3deff8FeEA5B26c',
-        router_address: '0xE83A7741c5d12Fa1c2d89275BCbfFceb79A8D39a',
+        token_address : '0x103b15355BE3876E61C4EBdD1FB934c2f3471B72',
+        router_address: '0x747E9Ab8Ef818A834f3fB56e2FBe07AA0ee0Abca',
     }
 }

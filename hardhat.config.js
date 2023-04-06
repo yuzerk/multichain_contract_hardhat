@@ -22,12 +22,14 @@ module.exports = {
       origin: {
         url: address_config.origin.url,
         chainId: parseInt(address_config.origin.chain_id),
-        accounts: [address_config.origin.test_private_key]
+        accounts: [address_config.origin.test_private_key],
+        gas: 6000000 // 设置全局 gas limit
       },
       destination : {
         url: address_config.destination.url,
         chainId: parseInt(address_config.destination.chain_id),
-        accounts: [address_config.destination.test_private_key]
+        accounts: [address_config.destination.test_private_key],
+        gas: 6000000 // 设置全局 gas limit
       }
   }
 };
