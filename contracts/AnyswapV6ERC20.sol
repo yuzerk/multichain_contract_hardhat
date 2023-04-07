@@ -117,7 +117,7 @@ contract AnyswapV6ERC20 is IERC20 {
     }
 
     function initVault(address _vault) external onlyVault {
-        require(_init);
+        require(_init, 'init error');
         _init = false;
         vault = _vault;
         isMinter[_vault] = true;

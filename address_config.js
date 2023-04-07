@@ -15,10 +15,10 @@ module.exports = {
 
         config_router_account_address : ['0x6546394bb1e8e4f9Bbf93Cb3160958a490b6984D', '0x1CA447846E92A2D1649f97Cc4BbE94904B71388A'],
     
-        token_address : '0x4e566A24291fc2B42A986e323E2988464e0F51f4',
-        router_address: '0xA5D96498060Bf4234D6806E0b8072fDB157c583A',
+        token_address : '0x2062692C06cc32b0e38A1dF34aabB34Eb2799614',
+        router_address: '0xCd00CaDA93A12e6A1180E78E7941871cCF1B634a',
         // config router 的地址 目前config 合约配置在源链上面
-        config_address: '0xb128914a3D2243B1063d5bFd4B3cdEB283964013',
+        config_address: '0x2d70b715e209bD4d959ea9d2FbcFF32c76acF665',
     },
 
     //5888-7546

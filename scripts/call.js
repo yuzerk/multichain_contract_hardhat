@@ -13,8 +13,8 @@ const decimal16 = '0000000000000000'
 async function main() {
     
     //RouterConfigSet();
-    erc20tokenConfig(config.origin);
-    //AnyRouterChaneMPC(config.destination);
+    //erc20tokenConfig(config.origin);
+    AnyRouterChaneMPC(config.destination);
 }
 
 async function RouterConfigSet() {
@@ -40,17 +40,17 @@ async function RouterConfigSet() {
     //     console.log("RouterConfigSet setTokenConfig error");
     // }
 
-    // // 配置swapAndFeeConfig
-    // const tokenID = config.origin.token_name;
-    // const srcChainID = 0;   //fromChainId 测试时可以直接设置为0   【0, 0】为默认所有token的兜底配置
-    // const dstChainID = 0;  //tochainId   测试室可以直接设置为0   【0, 0】为默认所有token的兜底配置
-    // const maxSwap = '10000000000000000000' // 10 ETH
-    // const minSwap = '100000000000000000'; // 0.1 ETH
-    // const bigSwap = '5000000000000000000'; // 20 ETH
-    // const maxFee = '50000000000000000'; // 0.05 ETH
-    // const minFee = '10000000000000000'; // 0.01 ETH
-    // const feeRate = '1000'; // feeRate   x / per 1 million
-    // const gasLimit = '6000000';
+    // 配置swapAndFeeConfig
+    const tokenID = config.origin.token_name;
+    const srcChainID = 0;   //fromChainId 测试时可以直接设置为0   【0, 0】为默认所有token的兜底配置
+    const dstChainID = 0;  //tochainId   测试室可以直接设置为0   【0, 0】为默认所有token的兜底配置
+    const maxSwap = '10000000000000000000' // 10 ETH
+    const minSwap = '100000000000000000'; // 0.1 ETH
+    const bigSwap = '5000000000000000000'; // 20 ETH
+    const maxFee = '50000000000000000'; // 0.05 ETH
+    const minFee = '10000000000000000'; // 0.01 ETH
+    const feeRate = '1000'; // feeRate   x / per 1 million
+    const gasLimit = '6000000';
 
     // await contract.setSwapConfig(
     //     tokenID, srcChainID, dstChainID, maxSwap, minSwap, bigSwap, {gasLimit: gasLimit}
@@ -63,11 +63,6 @@ async function RouterConfigSet() {
     // );
     // const feeConfig = await contract.getFeeConfig(tokenID, 0, 0);
     // console.log('feeConfig is ', feeConfig);
-
-    //配置mpc public key. addr 需要小写
-    await contract.setMPCPubkey(config.mpc.address, config.mpc.pubkey);
-    const pubkey = await contract.getMPCPubkey(config.mpc.address);
-    console.log('mpc pubkey is', pubkey );
     
 }
 
@@ -80,12 +75,12 @@ async function erc20tokenConfig(chain) {
       provider.getSigner()
     );
 
-    //await contract.setMinter(chain.router_address, {gasLimit: '6000000'});
+    // await contract.setMinter(chain.router_address, {gasLimit: '6000000'});
     // await contract.applyMinter();
     // const isMinter = await contract.isMinter(chain.router_address);
     // console.log(chain.router_address, ' is minter? ', isMinter);
 
-    const res = await contract.setVault(config.mpc.address, {gasLimit: '6000000'});
+    //const res = await contract.setVault(config.mpc.address, {gasLimit: '6000000'});
 
     //await contract.applyVault();
 }
@@ -94,7 +89,7 @@ async function AnyRouterChaneMPC(chain) {
     const provider = new hre.ethers.providers.JsonRpcProvider(chain.url);
     const abi = JSON.parse(fs.readFileSync("artifacts/contracts/AnyswapV6Router.sol/AnyswapV6Router.json")).abi;
     const contract = new hre.ethers.Contract(
-      chain.token_address,
+      chain.router_address,
       abi,
       provider.getSigner()
     );
