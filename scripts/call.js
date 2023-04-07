@@ -14,7 +14,8 @@ async function main() {
     
     //RouterConfigSet();
     //erc20tokenConfig(config.origin);
-    AnyRouterChaneMPC(config.destination);
+    //AnyRouterChaneMPC(config.destination);
+    RouterConfigPubkeySet();
 }
 
 async function RouterConfigSet() {
@@ -95,6 +96,18 @@ async function AnyRouterChaneMPC(chain) {
     );
     const success = await contract.changeMPC(config.mpc.address, {gasLimit : '6000000'});
     console.log(chain.chain_name, "router change mpc success? ", success);
+}
+
+async function RouterConfigPubkeySet(chain) {
+    const provider = new hre.ethers.providers.JsonRpcProvider(config.origin.url);
+    const abi = JSON.parse(fs.readFileSync("artifacts/contracts/RouterConfig.sol/RouterConfig.json")).abi;
+    const contract = new hre.ethers.Contract(
+      config.origin.config_address,
+      abi,
+      provider.getSigner()
+    );
+    const success = await contract.setMPCPubkey(config.mpc.address, config.mpc.pubkey,{gasLimit : '6000000'});
+    console.log("setMPCPubkey mpc success? ", success);
 }
 
 main().catch((error) => {

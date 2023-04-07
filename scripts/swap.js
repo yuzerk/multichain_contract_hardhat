@@ -17,7 +17,9 @@ async function main() {
     //mint(config.origin);
     //balanceOf(config.origin);
 
-    AnyRouterGetMPC(config.destination);
+    //AnyRouterGetMPC(config.destination);
+
+    RouterConfigGetMPC(config.origin);
 }
 
 async function balanceOf(chain) {
@@ -90,6 +92,18 @@ async function AnyRouterGetMPC(chain) {
     );
     const m = await contract.mpc();
     console.log(chain.chain_name, "router get mpc= ", m);
+}
+
+async function RouterConfigGetMPC(chain) {
+    const provider = new hre.ethers.providers.JsonRpcProvider(chain.url);
+    const abi = JSON.parse(fs.readFileSync("artifacts/contracts/RouterConfig.sol/RouterConfig.json")).abi;
+    const contract = new hre.ethers.Contract(
+      chain.config_address,
+      abi,
+      provider.getSigner()
+    );
+    const pubkey = await contract.getMPCPubkey(config.mpc.address);
+    console.log("pubkey get mpc= ", pubkey);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
