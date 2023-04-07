@@ -30,11 +30,11 @@ async function main() {
   //origin
   //deployAnyErc20(address_config.origin);
   //deployAnyRouter(address_config.origin);
-  deployRouterConfig();
+  //deployRouterConfig();
 
   //destination
   //deployAnyErc20(address_config.destination);
-  //deployAnyRouter(address_config.destination);
+  deployAnyRouter(address_config.destination);
 }
 
 async function deployAnyErc20(chain) {
