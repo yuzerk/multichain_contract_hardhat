@@ -12,10 +12,10 @@ const decimal16 = '0000000000000000'
 
 async function main() {
     
-    //RouterConfigSet();
-    //erc20tokenConfig(config.origin);
-    //AnyRouterChaneMPC(config.destination);
-    RouterConfigPubkeySet();
+    RouterConfigSet();
+    //erc20tokenConfig(config.destination);
+    //AnyRouterChaneMPC(config.origin);
+   //RouterConfigPubkeySet();
 }
 
 async function RouterConfigSet() {
@@ -27,19 +27,20 @@ async function RouterConfigSet() {
       provider.getSigner()
     );
     // //配置chain
-    // await contract.setChainConfig(config.origin.chain_id, config.origin.chain_name, config.origin.router_address, 1, 0, "");
+    // //await contract.setChainConfig(config.origin.chain_id, config.origin.chain_name, config.origin.router_address, 1, 0, "");
     // const chainConfig = await contract.getChainConfig(config.origin.chain_id);
+    // console.log('router_address is : ', chainConfig.RouterContract);
     // if (chainConfig.RouterContract != config.origin.router_address) {
     //     console.log('RouterConfigSet setChainConfig error, chainConfig.RouterContract is ', chainConfig.RouterContract, 'config.origin.router_address', config.origin.router_address)
     // }
 
-    // //配置token
-    // await contract.setTokenConfig(config.origin.token_name,config.origin.chain_id, config.origin.token_address, 18, 1, zero_address, "");
-    // const tokenConfig = await contract.getTokenConfig(config.origin.token_name, config.origin.chain_id);
-    // console.log("tokenconfig :", tokenConfig);
-    // if (tokenConfig.ContractAddress != config.origin.token_address) {
-    //     console.log("RouterConfigSet setTokenConfig error");
-    // }
+    //配置token
+    //await contract.setTokenConfig(config.origin.token_name,config.origin.chain_id, config.origin.token_address, 18, 1, config.origin.router_address, "");
+    const tokenConfig = await contract.getTokenConfig(config.origin.token_name, config.origin.chain_id);
+    console.log("tokenconfig :", tokenConfig);
+    if (tokenConfig.ContractAddress != config.origin.token_address) {
+        console.log("RouterConfigSet setTokenConfig error");
+    }
 
     // 配置swapAndFeeConfig
     const tokenID = config.origin.token_name;
@@ -75,9 +76,9 @@ async function erc20tokenConfig(chain) {
       abi,
       provider.getSigner()
     );
-
+    await contract.setRouter
     // await contract.setMinter(chain.router_address, {gasLimit: '6000000'});
-    // await contract.applyMinter();
+   //await contract.applyMinter();
     // const isMinter = await contract.isMinter(chain.router_address);
     // console.log(chain.router_address, ' is minter? ', isMinter);
 
@@ -94,7 +95,7 @@ async function AnyRouterChaneMPC(chain) {
       abi,
       provider.getSigner()
     );
-    const success = await contract.changeMPC(config.mpc.address, {gasLimit : '6000000'});
+(config.mpc.address, {gasLimit : '6000000'});
     console.log(chain.chain_name, "router change mpc success? ", success);
 }
 

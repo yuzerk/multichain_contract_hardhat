@@ -17,9 +17,9 @@ async function main() {
     //mint(config.origin);
     //balanceOf(config.origin);
 
-    //AnyRouterGetMPC(config.destination);
+    AnyRouterGetMPC(config.destination);
 
-    RouterConfigGetMPC(config.origin);
+    //RouterConfigGetMPC(config.origin);
 }
 
 async function balanceOf(chain) {
