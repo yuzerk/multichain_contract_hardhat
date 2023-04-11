@@ -35,7 +35,7 @@ async function RouterConfigSet() {
     // }
 
     //配置token
-    //await contract.setTokenConfig(config.origin.token_name,config.origin.chain_id, config.origin.token_address, 18, 1, config.origin.router_address, "");
+    await contract.setTokenConfig(config.origin.token_name,config.origin.chain_id, config.origin.token_address, 18, 1, config.origin.router_address, "");
     const tokenConfig = await contract.getTokenConfig(config.origin.token_name, config.origin.chain_id);
     console.log("tokenconfig :", tokenConfig);
     if (tokenConfig.ContractAddress != config.origin.token_address) {
@@ -76,7 +76,6 @@ async function erc20tokenConfig(chain) {
       abi,
       provider.getSigner()
     );
-    await contract.setRouter
     // await contract.setMinter(chain.router_address, {gasLimit: '6000000'});
    //await contract.applyMinter();
     // const isMinter = await contract.isMinter(chain.router_address);

@@ -11,13 +11,17 @@ const decimal18 = '000000000000000000'
 const decimal16 = '0000000000000000'
 
 async function main() {
-    //queryVault(config.origin);
+    queryVault(config.origin);
+
+    // 这个initVault的作用是：因为当前deploy的时候是vault是发合约的账号，然后使这个vault生效，并且把当前的minter也设置为发合约的账号，
+    //方便mint一些币测试, 然后后面再调用call.js里面的setVault 来吧vault设置为router_address
     //initVault(config.origin);
+
     //isMinter(config.origin);
     //mint(config.origin);
     //balanceOf(config.origin);
 
-    AnyRouterGetMPC(config.destination);
+    //AnyRouterGetMPC(config.destination);
 
     //RouterConfigGetMPC(config.origin);
 }
@@ -78,7 +82,7 @@ async function mint(chain) {
       abi,
       provider.getSigner()
     );
-    const va = await contract.mint(chain.account_address, '999000000000000000000');
+    const va = await contract.mint(chain.account_address, '999000000000000000000', {gasLimit: '6000000'});
     console.log(va);
 }
 

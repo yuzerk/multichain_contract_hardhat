@@ -30,6 +30,11 @@ module.exports = {
         chainId: parseInt(address_config.destination.chain_id),
         accounts: [address_config.destination.test_private_key],
         gas: 6000000 // 设置全局 gas limit
-      }
+      },
+      goerli: {
+        url: address_config.goerli.url,
+        chainId: parseInt(address_config.goerli.chain_id),
+        accounts: [address_config.goerli.test_private_key]
+      },
   }
 };

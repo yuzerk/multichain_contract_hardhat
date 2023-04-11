@@ -1,3 +1,5 @@
+const {projectId, privateKey, accountAddress } = require('./secrets.json');
+
 module.exports = {
     // relation wallet address : 0xcfC9658f2EF3dB4455D8d83d517b0467D5887268
     LOCAL_ACCOUNT_PRIVATE_KEY : '0x2d5d6416aa0b59469046ea2786d869ea26e2a133724547a5a4297934885ba800',
@@ -10,12 +12,12 @@ module.exports = {
 
         token_name : 'Test1',
         token_symbol : 't1',
-        account_address : '0x6546394bb1e8e4f9Bbf93Cb3160958a490b6984D',
-        test_private_key : '0x8a34bd8cf8d288002f44360dc39678f09f5f87b814622e4780acdaf433a1ad05',
+        account_address : '0xB97067b8a124E8f25f21832b40536216A72BcFeA',
+        test_private_key : '0x5a14495289033a6d353efed89ad351de9ceb548ecf52077c4b3289102f6c680d',
 
-        config_router_account_address : ['0x6546394bb1e8e4f9Bbf93Cb3160958a490b6984D', '0x1CA447846E92A2D1649f97Cc4BbE94904B71388A'],
+        config_router_account_address : ['0xB97067b8a124E8f25f21832b40536216A72BcFeA', '0x4059c956Ba573f14D2D44267Cb53AEeaDE80Ee5F'],
     
-        token_address : '0x7442e4E35A2Fea9d371C8963E39d994122E27553',
+        token_address : '0x5e0a046Aa11FaB14dd8A24CAa830651970C02521',
         router_address: '0x1EF5Ed59292BA93121cB39CEbf39fcb73C73cED7',
         // config router 的地址 目前config 合约配置在源链上面
         config_address: '0x0Ac099EEB0Be7e4De9c8bEDE1a27CAE725542C46',
@@ -34,6 +36,23 @@ module.exports = {
 
         token_address : '0xa76f809FB15704D535Bc4D85C57336Bf73Dc9C08',
         router_address: '0x7Ee0Cf7e6F01aA5090D01F97BD5eD9f260Ae7d4b',
+    },
+
+    goerli : {
+        url: "https://goerli.infura.io/v3/" + projectId,
+        chain_id: '5',
+        chain_name: 'goerli',
+
+        token_name : 'usei',
+        token_symbol : 'sei',
+        account_address : accountAddress,
+        test_private_key :privateKey,
+
+        token_address : '0xa76f809FB15704D535Bc4D85C57336Bf73Dc9C08',
+        router_address: '0x7Ee0Cf7e6F01aA5090D01F97BD5eD9f260Ae7d4b',
+
+        // config router 的地址 目前config 合约配置在源链上面
+        config_address: '0x0Ac099EEB0Be7e4De9c8bEDE1a27CAE725542C46',
     },
 
     mpc : {

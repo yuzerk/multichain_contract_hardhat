@@ -11,30 +11,17 @@ const address_config = require("../address_config.js")
 const zero_address = '0x0000000000000000000000000000000000000000'
 
 async function main() {
-  // const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  // const unlockTime = currentTimestampInSeconds + 60;
-
-  // const lockedAmount = hre.ethers.utils.parseEther("0.001");
-
-  // const Lock = await hre.ethers.getContractFactory("Lock");
-  // const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
-
-  // await lock.deployed();
-
-  // console.log(
-  //   `Lock with ${ethers.utils.formatEther(
-  //     lockedAmount
-  //   )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  // );
+  //goerli
+  checkBalance(address_config.goerli);
 
   //origin
-  //deployAnyErc20(address_config.origin);
+  //deployAnyErc20(address_config.goerli);
   //deployAnyRouter(address_config.origin);
   //deployRouterConfig();
 
   //destination
   //deployAnyErc20(address_config.destination);
-  deployAnyRouter(address_config.destination);
+  //deployAnyRouter(address_config.destination);
 }
 
 async function deployAnyErc20(chain) {
@@ -59,6 +46,11 @@ async function deployRouterConfig() {
   const router = await AnyRouter.deploy(address_config.origin.config_router_account_address, {gasLimit: 6000000, gasPrice: 20000000000});
   await router.deployed();
   console.log("config address: ", router.address)
+}
+
+async function checkBalance(chain) {
+  const balance = await ethers.provider.getBalance(chain.account_address);
+  console.log(ethers.utils.formatEther(balance));
 }
 
 // We recommend this pattern to be able to use async/await everywhere

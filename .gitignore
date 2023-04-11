@@ -32,3 +32,6 @@ yarn-error.log*
 # Other
 *.DS_Store
 Thumbs.db
+
+# private key
+secrets.json
