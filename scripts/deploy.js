@@ -12,10 +12,12 @@ const zero_address = '0x0000000000000000000000000000000000000000'
 
 async function main() {
   //goerli
-  checkBalance(address_config.goerli);
+  //checkBalance(address_config.goerli);
+  //deployAnyErc20(address_config.goerli);
+  //deployAnyRouter(address_config.goerli);
 
   //origin
-  //deployAnyErc20(address_config.goerli);
+  deployAnyErc20(address_config.origin);
   //deployAnyRouter(address_config.origin);
   //deployRouterConfig();
 
@@ -27,7 +29,7 @@ async function main() {
 async function deployAnyErc20(chain) {
   const contractName = 'AnyswapV6ERC20';
   const MyToken1 = await hre.ethers.getContractFactory(contractName);
-  const token1 = await MyToken1.deploy(chain.token_name, chain.token_symbol, 18, zero_address, chain.account_address);
+  const token1 = await MyToken1.deploy(chain.token_name, chain.token_symbol, 6, zero_address, chain.account_address);
   await token1.deployed();
   console.log("Token address:", token1.address);
 }
@@ -35,7 +37,7 @@ async function deployAnyErc20(chain) {
 async function deployAnyRouter(chain) {
   const contractName = 'AnyswapV6Router'
   const AnyRouter = await hre.ethers.getContractFactory(contractName);
-  const router = await AnyRouter.deploy(zero_address, zero_address, chain.account_address, {gasLimit: 6000000, gasPrice: 20000000000});
+  const router = await AnyRouter.deploy(zero_address, zero_address, chain.account_address, {gasLimit: 10000000, gasPrice: 20000000000});
   await router.deployed();
   console.log("router address: ", router.address)
 }
